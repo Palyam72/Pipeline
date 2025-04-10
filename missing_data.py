@@ -2,7 +2,7 @@ import streamlit as st
 from sklearn.impute import *
 
 def missing_data():
-    st.subheader("Pipeline For Imputing Missing Values", border=True)
+    st.subheader("Pipeline For Imputing Missing Values",divider='green')
     
     imputers = [
         'IterativeImputer', 'KNNImputer', 'MissingIndicator', 'SimpleImputer',
