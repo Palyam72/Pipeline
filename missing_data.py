@@ -5,13 +5,13 @@ def missing_data():
     st.subheader("Pipeline For Imputing Missing Values",divider='green')
     
     imputers = [
-        'IterativeImputer', 'KNNImputer', 'MissingIndicator', 'SimpleImputer',
+        'MeanMedianImputer', 'KNNImputer', 'MissingIndicator', 'SimpleImputer',
         'ArbitraryNumberImputer', 'EndTailImputer', 'CategoricalImputer',
         'RandomSampleImputer', 'DropMissingData'
     ]
     
     functions_list = [
-        iterative_imputer,
+        mean_median_imputer,
         knn_imputer,
         missing_indicator,
         simple_imputer,
@@ -27,8 +27,10 @@ def missing_data():
        functions_list[imputers.index(selectedImputer)]
 
 # Initialize all imputer functions with pass (to be implemented later)
-def iterative_imputer():
-    pass
+def mean_median_imputer():
+    st.markdown("##### Set the params")
+    imputation_method=st.seslectbox("How you want to fill the missing values in numerical columns",['median','mean'])
+    variables=st.multiselect("List of numerical columns to impute",[])
 
 def knn_imputer():
     pass
