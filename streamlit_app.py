@@ -39,7 +39,7 @@ def read_file(fileUploaded):
 if "pipeline" not in st.session_state:
     st.session_state['pipeline'] = []
 if "dataset" not in st.session_state:
-    st.session_state['dataset'] = []
+    st.session_state['dataset'] = None
 
 # Display pipeline in sidebar
 st.sidebar.subheader("View the stages that you add in pipeline here", divider='blue')
