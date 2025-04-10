@@ -38,6 +38,8 @@ def read_file(fileUploaded):
 # Initialize pipeline in session state if not exists
 if "pipeline" not in st.session_state:
     st.session_state['pipeline'] = []
+if "dataset" not in st.session_state:
+    st.session_state['dataset'] = []
 
 # Display pipeline in sidebar
 st.sidebar.subheader("View the stages that you add in pipeline here", divider='blue')
