@@ -48,7 +48,7 @@ else:
 
 # File uploader
 st.sidebar.subheader("Upload file here", divider='blue')
-fileUploaded = st.file_uploader("Upload files", type=['csv', 'xlsx'])
+fileUploaded = st.sidebar.file_uploader("Upload files", type=['csv', 'xlsx'])
 
 # Store uploaded dataset in session state
 if fileUploaded:
