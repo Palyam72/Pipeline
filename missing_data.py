@@ -22,9 +22,9 @@ def missing_data():
         drop_missing_data
     ]
     
-  selectedImputer=st.selectbox("Select the imputer",imputers)
-  if selectedImputer:
-    fuction_list[imputers.index(selectedImputer)]
+    selectedImputer=st.selectbox("Select the imputer",imputers)
+    if selectedImputer:
+       fuction_list[imputers.index(selectedImputer)]
 
 # Initialize all imputer functions with pass (to be implemented later)
 def iterative_imputer():
