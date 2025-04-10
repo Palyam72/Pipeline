@@ -54,35 +54,33 @@ fileUploaded = st.sidebar.file_uploader("Upload files", type=['csv', 'xlsx'])
 
 # Store uploaded dataset in session state
 if fileUploaded:
-    st.session_state['dataset'] = read_file(fileUploaded)
-
-# Stage mapping
-mapper = {
-    1: missing_data,
-    2: outlier_removal,
-    3: encode,
-    4: feature_selection,
-    5: feature_creation,
-    6: feature_scaling,
-    7: train_test_split,
-    8: model_selection,
-    9: model_download
-}
-
-# Create individual column objects
-col1, col2 = st.columns(2, border=True)
-col3, col4 = st.columns(2, border=True)
-col5_list = st.columns(1, border=True)
-col6, col7 = st.columns(2, border=True)
-col8, col9 = st.columns(2, border=True)
-
-# Unpack col5_list (which is a list) correctly
-col5 = col5_list[0]
-
-# Store all column references in one flat list
-columns = [col1, col2, col3, col4, col5, col6, col7, col8, col9]
-
-# Render each stage module in its corresponding column
-for i in range(1, 10):
-    with columns[i - 1]:
-        mapper[i]()  # Call the respective function
+    readed_data = read_file(fileUploaded)
+    mapper = {
+        1: missing_data,
+        2: outlier_removal,
+        3: encode,
+        4: feature_selection,
+        5: feature_creation,
+        6: feature_scaling,
+        7: train_test_split,
+        8: model_selection,
+        9: model_download
+    }
+    
+    # Create individual column objects
+    col1, col2 = st.columns(2, border=True)
+    col3, col4 = st.columns(2, border=True)
+    col5_list = st.columns(1, border=True)
+    col6, col7 = st.columns(2, border=True)
+    col8, col9 = st.columns(2, border=True)
+    
+    # Unpack col5_list (which is a list) correctly
+    col5 = col5_list[0]
+    
+    # Store all column references in one flat list
+    columns = [col1, col2, col3, col4, col5, col6, col7, col8, col9]
+    
+    # Render each stage module in its corresponding column
+    for i in range(1, 10):
+        with columns[i - 1]:
+            mapper[i](readed_data)  # Call the respective function
