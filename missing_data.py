@@ -1,6 +1,6 @@
 import streamlit as st
 from sklearn.impute import *
-
+from feature_engine.imputation import *
 def missing_data():
     st.subheader("Pipeline For Imputing Missing Values",divider='green')
     
