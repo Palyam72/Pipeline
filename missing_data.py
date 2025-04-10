@@ -64,8 +64,18 @@ def mean_median_imputer():
 
 # Placeholder function definitions
 def knn_imputer():
-    st.info("KNNImputer functionality coming soon.")
-    pass
+    st.markdown("##### Set the parameters for knn imputer")
+    n_neighbours=int(st.number_input("Number of neighboring samples to use for imputation.",5))
+    weights=st.selectbox("Weight function used in prediction. Possible values:",['uniform','distance'])
+    if st.button("Add To Pipeline", use_container_width=True, type='primary'):
+        if imputation_method and variables:
+            st.session_state['pipeline'].append(
+                KNNImputer(n_neighbours=n_neighbours,weights=weights)
+            )
+            st.success("KNNImputer added successfully to pipeline!")
+        else:
+            st.warning("Please select both method and columns.")
+
 
 def missing_indicator():
     st.info("MissingIndicator functionality coming soon.")
