@@ -64,7 +64,7 @@ def knn_imputer(data):
     if st.button("Add To Pipeline", use_container_width=True, type='primary'):
         if n_neighbours and weights:
             st.session_state['pipeline'].append(
-                KNNImputer(n_neighbours=n_neighbours,weights=weights)
+                KNNImputer(n_neighbors=n_neighbours,weights=weights)
             )
             st.success("KNNImputer added successfully to pipeline!")
         else:
