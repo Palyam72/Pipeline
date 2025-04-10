@@ -1,2 +1,2 @@
-def train_test_split():
+def train_test_split(data):
   pass
