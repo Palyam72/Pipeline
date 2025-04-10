@@ -1,2 +1,2 @@
-def feature_scaling():
+def feature_scaling(data):
   pass
