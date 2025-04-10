@@ -24,7 +24,7 @@ def missing_data():
     
     selectedImputer=st.selectbox("Select the imputer",imputers)
     if selectedImputer:
-       functions_list[imputers.index(selectedImputer)]
+       functions_list[imputers.index(selectedImputer)]()
 
 # Initialize all imputer functions with pass (to be implemented later)
 def mean_median_imputer():
