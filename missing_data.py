@@ -68,7 +68,7 @@ def knn_imputer():
     n_neighbours=int(st.number_input("Number of neighboring samples to use for imputation.",5))
     weights=st.selectbox("Weight function used in prediction. Possible values:",['uniform','distance'])
     if st.button("Add To Pipeline", use_container_width=True, type='primary'):
-        if imputation_method and variables:
+        if n_neighbours and weights:
             st.session_state['pipeline'].append(
                 KNNImputer(n_neighbours=n_neighbours,weights=weights)
             )
