@@ -30,8 +30,13 @@ def missing_data():
 def mean_median_imputer():
     st.markdown("##### Set the params")
     imputation_method=st.seslectbox("How you want to fill the missing values in numerical columns",['median','mean'])
-    variables=st.multiselect("List of numerical columns to impute",[])
-
+    variables=st.multiselect("List of numerical columns to impute",[st.session_state['dataset'].select_dtypes(include=['int8','int32','int64','float8','float32','float64']).columns])
+    if st.button("Add To Pipeline",use_container_width=True,type='primary'):
+        if imputation_method and variables:
+            st.session_state['pipeline'].append(MeanMedianImputer(imputation_method,variables))
+            st.success("Added Successfully")
+        else:
+            st.warning("All inputs are required")
 def knn_imputer():
     pass
 
