@@ -67,16 +67,20 @@ mapper = {
     9: model_download
 }
 
-# Create columns for stage buttons
+# Create individual column objects
 col1, col2 = st.columns(2, border=True)
 col3, col4 = st.columns(2, border=True)
-col5 = st.columns(1, border=True)
+col5_list = st.columns(1, border=True)
 col6, col7 = st.columns(2, border=True)
 col8, col9 = st.columns(2, border=True)
-# Store column references in a list for dynamic access
+
+# Unpack col5_list (which is a list) correctly
+col5 = col5_list[0]
+
+# Store all column references in one flat list
 columns = [col1, col2, col3, col4, col5, col6, col7, col8, col9]
 
-# Render each stage module in a column
+# Render each stage module in its corresponding column
 for i in range(1, 10):
     with columns[i - 1]:
-        mapper[i]()
+        mapper[i]()  # Call the respective function
