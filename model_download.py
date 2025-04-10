@@ -1,2 +1,2 @@
-def model_download():
+def model_download(data):
   pass
