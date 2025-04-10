@@ -1,2 +1,2 @@
-def outlier_removal():
+def outlier_removal(data):
   pass
