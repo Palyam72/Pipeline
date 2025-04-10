@@ -1,0 +1,9 @@
+pandas
+numpy
+matplotlib
+seaborn
+scikit-learn
+feature-engine
+category-encoders
+openpyxl
+chardet
